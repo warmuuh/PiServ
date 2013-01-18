@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="hero-unit">
+            <h1>GPIO:</h1>
+            <p>GPIO input / output status.</p>
+            <p><a id="refresh" class="btn btn-primary btn-large">Refresh state &raquo;</a></p>
+          </div>
+          <div class="row-fluid">
+            <div class="span7">
+              <h2 id="message">Switch Pins</h2>
+              <p>
+                <a id="pin2" class="btn pin" href="#">2</a>
+                <a id="pin4" class="btn pin" href="#">4</a>
+                <a id="pin6" class="btn pin" href="#">6</a> 
+                <a id="pin8" class="btn pin" href="#">8</a>
+                <a id="pin10" class="btn pin" href="#">10</a> 
+                <a id="pin12" class="btn pin" href="#">12</a>
+                <a id="pin14" class="btn pin" href="#">14</a> 
+                <a id="pin16" class="btn pin" href="#">16</a>
+                <a id="pin18" class="btn pin" href="#">18</a>
+                <a id="pin20" class="btn pin" href="#">20</a>
+                <a id="pin22" class="btn pin" href="#">22</a> 
+                <a id="pin24" class="btn pin" href="#">24</a>
+                <a id="pin26" class="btn pin" href="#">26</a> 
+              </p>
+              <p>
+                <a id="pin1" class="btn pin" href="#">1</a>
+                <a id="pin3" class="btn pin" href="#">3</a>
+                <a id="pin5" class="btn pin" href="#">5</a> 
+                <a id="pin7" class="btn pin" href="#">7</a>
+                <a id="pin9" class="btn pin" href="#">9</a> 
+                <a id="pin11" class="btn pin" href="#">11</a>
+                <a id="pin13" class="btn pin" href="#">13</a> 
+                <a id="pin15" class="btn pin" href="#">15</a>
+                <a id="pin17" class="btn pin" href="#">17</a>
+                <a id="pin19" class="btn pin" href="#">19</a>
+                <a id="pin21" class="btn pin" href="#">21</a> 
+                <a id="pin23" class="btn pin" href="#">23</a>
+                <a id="pin25" class="btn pin" href="#">25</a> 
+              </p>
+            </div><!--/span-->
+            
+          
+            
+            
+          </div><!--/row-->
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript">
+  require( ["jquery", "gpio"], function ($, gpio) {
+     
+  function updatePinState(){
+      for(var i = 0; i < gpio.getPins().length; i++) {
+        $("#pin"+(i+1)).toggleClass("btn-inverse", gpio.getPins()[i].state === 1)
+      } 
+  }   
+     
+     
+  $(".pin").click(function(){
+    var pinId = parseInt($(this).text()) -1;
+    gpio.switchState(pinId);
+    gpio.pollState(updatePinState);
+  })
+  
+  
+  $("#refresh").click(function(){
+    gpio.pollState(updatePinState);
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="hero-unit">
+            <h1>Power Plug Status:</h1>
+            <p>status of RF-Controlled Power Plugs</p>
+            <p>
+            <div id="house">
+            <a href="#" onclick="$(this).children().toggleClass('plug-off plug-on')"><div class="plug-on" style="left:440px;top:50px"></div></a>
+            <a href="#" onclick="$(this).children().toggleClass('plug-off plug-on')"><div class="plug-off" style="left:330px;top:260px"></div></a>
+            </div>
+            
+            
+            
+            </p>
+          </div>
+          <div class="row-fluid">
+            <div class="span4">
+              <h2>Switch Power Plugs</h2>
+            </div><!--/span-->
+            
+          
+            
+            
+          </div><!--/row-->
+{% endblock %}

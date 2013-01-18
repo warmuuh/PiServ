@@ -1,0 +1,45 @@
+.pin_in {
+  width: 1000;
+}
+
+.pin {
+  width: 20px;
+}
+
+
+
+
+
+#house {
+background-image: url(/files/img/house.png);
+width: 615px;
+height: 464px;
+z-index: 1;
+}
+
+
+.plug-on {
+position: relative;
+background-image: url(/files/img/plug_on.png);
+width: 32px;
+height: 32px;
+z-index: 2;
+}
+
+
+.plug-off {
+position: relative;
+background-image: url(/files/img/plug_off.png);
+width: 32px;
+height: 32px;
+z-index: 2;
+}
+
+.plug-off a, .plug-on a,  {
+
+position: relative;
+height: 100%;
+width: 100%;
+
+
+}
