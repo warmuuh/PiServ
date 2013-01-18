@@ -55,17 +55,21 @@
 <script type="text/javascript">
   require( ["jquery", "gpio"], function ($, gpio) {
      
+     
+  function updatePin(id, pin){
+    $("#pin"+(id+1)).toggleClass("btn-inverse", pin.state === 1)
+  }   
+     
   function updatePinState(){
       for(var i = 0; i < gpio.getPins().length; i++) {
-        $("#pin"+(i+1)).toggleClass("btn-inverse", gpio.getPins()[i].state === 1)
+        updatePin(i, gpio.getPins()[i]);
       } 
   }   
      
      
   $(".pin").click(function(){
     var pinId = parseInt($(this).text()) -1;
-    gpio.switchState(pinId);
-    gpio.pollState(updatePinState);
+    gpio.switchState(pinId, updatePin);
   })
   
   
@@ -78,7 +82,7 @@
   
   
   
-  
+  gpio.pollState(updatePinState);
   
   });
 </script>

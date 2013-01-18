@@ -46,4 +46,4 @@ class Gpio:
         id = int(id);
         print("switching pin " + str(id+1) + " to state " + str(body.state));
         self.states[id].state = body.state;
-    
+        return self.states[id]

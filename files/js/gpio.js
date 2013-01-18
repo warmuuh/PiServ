@@ -16,7 +16,7 @@ define(["jquery"], function ($) {
          });
     },
     
-    switchState: function(pinId) {
+    switchState: function(pinId, callback) {
       var pin = pins[pinId];
       pin.state = (pin.state-1) * -1;  //toggles 0 and 1
       /*$.post("/api/gpio/" + pinId,  JSON.stringify(pin), function(data, textStatus) {
@@ -30,7 +30,11 @@ define(["jquery"], function ($) {
         type:"POST",
         data: JSON.stringify(pin),
         contentType:"application/json; charset=utf-8",
-        dataType:"json"
+        dataType:"json",
+        success: function(data){
+            //data = JSON.parse(data);
+            callback(pinId, data);
+        }
       })
     }
     
