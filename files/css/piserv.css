@@ -1,10 +1,58 @@
 
+
+
+#prompt-area {
+  width:100%;
+  display:table;
+}
+#prompt {
+  display:table-cell; 
+  width:1px;
+  white-space: nowrap;
+}
+
+#newCommand {
+  display:table-cell; 
+  width:100%
+  
+}
+
+label {
+  display: inline;
+}
+
 .pin {
   width: 20px;
 }
 
 
 
+.command {
+  display: block;
+  padding: 9.5px;
+  margin: 0px 0px 10px;
+  font-size: 13px;
+  line-height: 18px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px 4px 4px 4px;
+  font-family: monospace;
+}
+
+.command .out {
+
+}
+
+
+.command .in {
+color: rgb(0,204,0);
+}
+.command .err {
+color: rgb(204,0,0);
+}
 
 
 #house {

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="hero-unit">
+            <h1>Bash</h1>
+            <input id="clear" type="button" value="clear" />
+            <div id="command-list"></div>
+            <div id="prompt-area">
+              <label  id="prompt" for="newCommand">&gt;</label>
+              <input id="newCommand"  name="newCommand" class="cmdIn" />         
+             </div>
+    </div>
+         
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript">
+  require( ["jquery"], function ($) {
+     var cmdObj = null;
+     
+     function escapeHTML(ele) {
+        return ele.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+     
+     function addNewCommandOutput(cmd) {
+        $("#command-list").append("<div class='command'><div class='in'>"+escapeHTML(cmd.cmd)+"</div><div class='out'>"+escapeHTML(cmd.out)+"</div><div class='err'>"+escapeHTML(cmd.err)+"</div></div>");
+     }
+     
+     
+     function setPrompt(cmd){
+        $("#prompt").text(cmd.prompt);
+     }
+     
+     function sendCommand(cmd){
+        cmdObj.cmd = cmd;
+         $.ajax({
+          type: "POST",
+          url: "api/bash",
+          contentType:"application/json; charset=utf-8",
+          data: JSON.stringify(cmdObj),
+          success: function(data){
+            addNewCommandOutput(data);
+            setPrompt(data);
+            $("#newCommand").val("").focus();
+           // $("#newCommand").focus();
+          },
+          dataType: "json"
+          });
+        
+        
+     }
+     
+     $.getJSON("/api/bash", function(data){
+        setPrompt(data);
+        cmdObj = data;
+     });
+     
+    $('#newCommand').keyup(function(e) {
+      if(e.keyCode == 13) { //enter was pressed
+        sendCommand($("#newCommand").val());   
+      }
+    });
+     
+     
+    
+     $("#clear").click( function(){
+        $("#command-list").empty(); 
+     });
+     
+      $("#newCommand").focus();
+  });
+</script>
+{% endblock %}

@@ -28,13 +28,20 @@ cherrypy.tools.template = Jinja2Tool()
 
 
 
+
 from pages import * 
 
 current_dir = os.getcwd()
-
+userpassdict = {'pi' : 'serv'}
+checkpassword = cherrypy.lib.auth_basic.checkpassword_dict(userpassdict)
 cherrypy.config.update("config.cfg")
 conf = {
-  '/': {'tools.staticdir.on': True,
+  '/': {
+        'tools.auth_basic.on': True,
+        'tools.auth_basic.realm': 'piserv',
+        'tools.auth_basic.checkpassword': checkpassword,
+        
+        'tools.staticdir.on': True,
         'tools.staticdir.dir': current_dir,
         'tools.encode.on': False
   },

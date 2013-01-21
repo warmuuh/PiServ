@@ -1,1 +1,1 @@
-__all__ = ["index", "gpio", "GpioState"]
+__all__ = ["index", "gpio", "GpioState", "CmdOutput"]

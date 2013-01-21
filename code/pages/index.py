@@ -7,17 +7,24 @@ class PageController:
     
     @cherrypy.expose
     @cherrypy.tools.template(template='status.html')
-    def index(self, name=None):
+    def index(self):
         return  {"cpu":{'usage':'65',
                         'processes':'30'}}
     
     @cherrypy.expose
     @cherrypy.tools.template(template='gpio.html')
-    def gpio(self, name=None):
+    def gpio(self):
         return  {}
     
+    
+    @cherrypy.expose
+    @cherrypy.tools.template(template='bash.html')
+    def bash(self):
+        return  {}
+        
+        
     @cherrypy.expose
     @cherrypy.tools.template(template='house.html')
-    def house(self, name=None):
+    def house(self):
         return  {}
     
