@@ -36,6 +36,23 @@
 
   <body>
 
+
+
+<div id="aboutModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">About PiServ</h3>
+  </div>
+  <div class="modal-body">
+    <p>Developed by Wrm</p>
+    <p>Fork on Github: <a href="https://github.com/warmuuh/PiServ">https://github.com/warmuuh/PiServ</a></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -78,6 +95,10 @@
           "bootstrap": "bootstrap"
       },
       waitSeconds: 40
+    });
+    //setup bootstrap
+    require(["jquery"], function($){
+      require(["bootstrap"]);
     });
   </script>
     {% block script %}{% endblock %}

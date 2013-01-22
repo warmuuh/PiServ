@@ -1,6 +1,5 @@
 
-
-
+/*
 #prompt-area {
   width:100%;
   display:table;
@@ -13,19 +12,25 @@
 
 #newCommand {
   display:table-cell; 
-  width:90%
+  width:80%
   
 }
 
 #sendCommand {
   display:table-cell;
-  width:35px;
+  width:80px;
   white-space: nowrap;
   
 }
+*/
 label {
   display: inline;
 }
+#newCommand {
+  width:70%
+  
+}
+
 
 .pin {
   width: 20px;

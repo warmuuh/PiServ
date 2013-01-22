@@ -8,13 +8,14 @@
             <h1>Bash</h1>
             <input id="clear" type="button" value="clear" />
             <div id="command-list"></div>
-            <div id="prompt-area">
-              <label  id="prompt" for="newCommand">&gt;</label>
-              <input id="newCommand"  name="newCommand" class="cmdIn" />
-              <input id="sendCommand" type="button"  value="send"/>           
-             </div>
+           
     </div>
-         
+          <div id="prompt-area" class="navbar navbar-inner">
+                  <label  id="prompt" for="newCommand">&gt;</label>
+                  <input id="newCommand"  name="newCommand" class="span2" />
+                  <button id="sendCommand" type="button"  class="btn">Submit</button>
+                       
+             </div>
 {% endblock %}
 
 
