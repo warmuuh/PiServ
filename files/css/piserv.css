@@ -13,10 +13,16 @@
 
 #newCommand {
   display:table-cell; 
-  width:100%
+  width:90%
   
 }
 
+#sendCommand {
+  display:table-cell;
+  width:35px;
+  white-space: nowrap;
+  
+}
 label {
   display: inline;
 }
