@@ -28,6 +28,11 @@
      
      function addNewCommandOutput(cmd) {
         $("#command-list").append("<div class='command'><div class='in'>"+escapeHTML(cmd.cmd)+"</div><div class='out'>"+escapeHTML(cmd.out)+"</div><div class='err'>"+escapeHTML(cmd.err)+"</div></div>");
+        $('html, body').animate({ 
+           scrollTop: $(document).height()-$(window).height()}, 
+           1400, 
+           "easeOutQuint"
+        );
      }
      
      
