@@ -24,7 +24,7 @@ define(["jquery"], function ($) {
           //textStatus contains the status: success, error, etc
         }, "json");
         */
-        
+
       $.ajax({
         url:"/api/gpio/" + pinId,
         type:"POST",
@@ -35,7 +35,7 @@ define(["jquery"], function ($) {
             //data = JSON.parse(data);
             callback(pinId, data);
         }
-      })
+      });
     }
     
     

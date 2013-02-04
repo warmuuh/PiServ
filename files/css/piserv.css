@@ -27,7 +27,8 @@ label {
   display: inline;
 }
 #newCommand {
-  width:60%
+  width:60%;
+  
   
 }
 
@@ -66,7 +67,7 @@ color: rgb(204,0,0);
 }
 
 
-#house {
+#floor-plan {
 background-image: url(/files/img/house.png);
 width: 615px;
 height: 464px;

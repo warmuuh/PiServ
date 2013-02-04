@@ -1,11 +1,23 @@
-<ul class="nav nav-list">
+<ul id="menu" class="nav nav-list">
               <li class="nav-header">Pi</li>
              <!-- <li class="active"><a href="/">Status</a></li>-->
-              <li><a href="/">Status</a></li>
-              <li><a href="/gpio">GPIO</a></li>
-              <li><a href="/bash">Bash</a></li>
+              <li id="index"><a href="/">Status</a></li>
+              <li id="gpio"><a href="/gpio">GPIO</a></li>
+              <li id="bash"><a href="/bash">Bash</a></li>
               <li class="nav-header">House</li>
-              <li><a href="/house">Power</a></li>
+              <li id="house"><a href="/house">Power</a></li>
               <li class="nav-header">Debug</li>
-              <li><a href="#">Log</a></li>
+              <li id="log"><a href="#">Log</a></li>
 </ul>
+
+<script type="text/javascript">
+var path  = window.location.pathname;
+if (path.length == 1) //  only '/'
+  path = path + "index";
+path = path.substr(1);
+
+element = document.getElementById(path);
+element.setAttribute("class", "active");
+
+
+</script>

@@ -10,10 +10,11 @@
             <div id="command-list"></div>
            
     </div>
-          <div id="prompt-area" class="navbar navbar-inner">
+         <!-- <div id="prompt-area" class="navbar navbar-inner">-->
+           <div id="prompt-area" class="well form-search">
                   <label  id="prompt" for="newCommand">&gt;</label>
-                  <input id="newCommand"  name="newCommand" class="span2" />
-                  <button id="sendCommand" type="button"  class="btn">Submit</button>
+                  <input id="newCommand"  type="text" name="newCommand" class="span2" />
+                  <button id="sendCommand" type="button"  class="btn btn-primary">Submit</button>
                   <button id="clear" type="button" class="btn">Clear</button>            
              </div>
 {% endblock %}
@@ -43,6 +44,8 @@
      }
      
      function sendCommand(cmd){
+        $("#newCommand").addClass("uneditable-input");
+        $('#newCommand').attr('disabled', 'disabled');
         cmdObj.cmd = cmd;
          $.ajax({
           type: "POST",
@@ -50,6 +53,9 @@
           contentType:"application/json; charset=utf-8",
           data: JSON.stringify(cmdObj),
           success: function(data){
+            $("#newCommand").removeClass("uneditable-input");
+            $('#newCommand').removeAttr('disabled');
+
             addNewCommandOutput(data);
             setPrompt(data);
             $("#newCommand").val("");
