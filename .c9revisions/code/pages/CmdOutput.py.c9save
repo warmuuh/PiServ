@@ -1,0 +1,1 @@
+{"ts":1378388954547,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"class CmdOutput:\r\n  def __init__(self, prompt, cmd, out, err):\r\n    self.prompt = prompt\r\n    self.cmd = cmd\r\n    self.out = out\r\n    self.err = err"]],"start1":0,"start2":0,"length1":0,"length2":148}]],"length":148}
