@@ -2,6 +2,7 @@
 {% block title %}Index{% endblock %}
 {% block head %}
     {{ super() }}
+    
 {% endblock %}
 {% block content %}
     <div class="hero-unit">
@@ -9,8 +10,8 @@
             <p>status of RF-Controlled Power Plugs</p>
             <p>
             <div id="floor-plan">
-            <a href="#" onclick="$(this).children().toggleClass('plug-off plug-on')"><div class="plug-on" style="left:440px;top:50px"></div></a>
-            <a href="#" onclick="$(this).children().toggleClass('plug-off plug-on')"><div class="plug-off" style="left:330px;top:260px"></div></a>
+            <div data-pid="1" class="plug plug-on" style="left:440px;top:50px"></div>
+            <div data-pid="2" class="plug plug-off" style="left:330px;top:260px"></div>
             </div>
             
             
@@ -26,4 +27,24 @@
             
             
           </div><!--/row-->
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript">
+require(["plug", "jquery"], function(plug, $){
+   
+    $('plug').click(function(){
+        var pid = $(this).attr('data-pid');
+        var self = this;
+        plug.switch(pid, function(data){
+            $(self).children().toggleClass('plug-off plug-on');    
+        });
+        
+        
+    });
+    
+    
+});
+</script>
 {% endblock %}
