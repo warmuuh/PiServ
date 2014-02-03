@@ -1,5 +1,5 @@
 from util.jsonify import jsonify
-
+from util.elro import Elro
 
 
 class Plug:
@@ -10,6 +10,7 @@ class Plug:
           1,
           0
       ]
+      self.elro = Elro();
     
     
     @jsonify
@@ -21,5 +22,6 @@ class Plug:
         id = int(id);
         newState= (self.states[id] -1) * -1;
         print("switching plug " + str(id+1) + " to state " + str(newState));
+        self.elro.switch(id, newState);
         self.states[id] = newState;
         return newState
