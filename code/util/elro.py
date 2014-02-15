@@ -2,14 +2,14 @@
 class Elro:
      
     def __init__(self):
-      
+      return;
     
     
    
     def switch(self, id, on):
-        if (on)
+        if on:
             return self.switchOn(id);
-        else
+        else:
             return self.switchOff(id);
         
     def switchOn(self, id):
