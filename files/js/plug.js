@@ -7,7 +7,8 @@ define(["jquery"], function ($) {
           $.ajax({
             url:"/api/plug",
             type:"POST",
-            data: {id:pid},
+            data: JSON.stringify({id:pid}),
+            processData: false,
             contentType:"application/json; charset=utf-8",
             dataType:"json",
             success: function(data){
