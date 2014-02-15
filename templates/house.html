@@ -11,8 +11,8 @@
             <p>
             <div id="floor-plan">
 
-            <a href="#"><div data-pid="0" class="plug plug-on" style="left:440px;top:50px"></div></a>
-            <a href="#"><div data-pid="1" class="plug plug-off" style="left:330px;top:260px"></div></a>
+            <div data-pid="0" class="plug plug-on" style="left:440px;top:50px"></div>
+            <div data-pid="1" class="plug plug-off" style="left:330px;top:260px"></div>
 
             </div>
             
@@ -36,7 +36,7 @@
 <script type="text/javascript">
 require(["plug", "jquery"], function(plug, $){
    
-    $('plug').click(function(){
+    $('.plug').click(function(){
         var pid = $(this).attr('data-pid');
         var self = this;
         plug.switch(pid, function(data){
