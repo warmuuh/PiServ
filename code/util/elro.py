@@ -1,3 +1,4 @@
+from subprocess import call
 
 class Elro:
      
@@ -13,8 +14,10 @@ class Elro:
             return self.switchOff(id);
         
     def switchOn(self, id):
+        call(["/home/pi/prog/funk/elro_wiring.py",""+id,"1"])
         return true;
     
     def switchOff(self, id):
+        call(["/home/pi/prog/funk/elro_wiring.py",str(pow(2,id)),"0"])
         return true;
     
