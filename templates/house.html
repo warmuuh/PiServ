@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
+{% block title %}Home{% endblock %}
 {% block head %}
     {{ super() }}
     
@@ -10,8 +10,10 @@
             <p>status of RF-Controlled Power Plugs</p>
             <p>
             <div id="floor-plan">
+
             <div data-pid="1" class="plug plug-on" style="left:440px;top:50px"></div>
             <div data-pid="2" class="plug plug-off" style="left:330px;top:260px"></div>
+
             </div>
             
             
@@ -48,3 +50,4 @@ require(["plug", "jquery"], function(plug, $){
 });
 </script>
 {% endblock %}
+
