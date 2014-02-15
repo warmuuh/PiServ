@@ -15,9 +15,9 @@ class Elro:
         
     def switchOn(self, id):
         call(["/home/pi/prog/funk/elro_wiring.py",""+id,"1"])
-        return true;
+        return True;
     
     def switchOff(self, id):
         call(["/home/pi/prog/funk/elro_wiring.py",str(pow(2,id)),"0"])
-        return true;
+        return True;
     
