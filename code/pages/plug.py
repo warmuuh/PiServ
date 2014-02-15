@@ -18,8 +18,8 @@ class Plug:
         return self.states
     
     @jsonify
-    def POST(self, id, body=None):
-        id = int(id);
+    def POST(self, body):
+        id = int(body.id);
         newState= (self.states[id] -1) * -1;
         print("switching plug " + str(id+1) + " to state " + str(newState));
         self.elro.switch(id, newState);

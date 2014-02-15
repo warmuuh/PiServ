@@ -5,9 +5,9 @@ define(["jquery"], function ($) {
           
           
           $.ajax({
-            url:"/api/plug/" + pid,
+            url:"/api/plug",
             type:"POST",
-            data: {},
+            data: {id:pid},
             contentType:"application/json; charset=utf-8",
             dataType:"json",
             success: function(data){
