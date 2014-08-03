@@ -20,7 +20,8 @@ class Plug:
     @jsonify
     def POST(self, body):
         id = int(body["id"]);
-        newState= (self.states[id] -1) * -1;
+        newState = bool(body["switchOn"]);
+        #newState= (self.states[id] -1) * -1;
         print("switching plug " + str(id+1) + " to state " + str(newState));
         self.elro.switch(id, newState);
         self.states[id] = newState;
